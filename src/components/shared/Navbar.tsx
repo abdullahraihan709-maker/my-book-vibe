@@ -21,6 +21,7 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-2xl z-10 mt-3 w-52 p-3 shadow-xl border border-base-200 gap-1"
                         >
                             <li><Link href="/" className="font-medium active:bg-[#23BE0A] active:text-white">Home</Link></li>
+                            <li><Link href="/books" className="font-medium">Books</Link></li>
                             <li><Link href="/listed-books" className="font-medium">Listed Books</Link></li>
                             <li><Link href="/pages-to-read" className="font-medium">Pages to Read</Link></li>
                         </ul>
@@ -45,6 +46,9 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1 gap-2 font-medium text-base">
                         <li>
                             <Link href="/" className="rounded-lg hover:text-[#23BE0A] transition-colors">Home</Link>
+                        </li>
+                        <li>
+                            <Link href="/books" className="rounded-lg hover:text-[#23BE0A] transition-colors">Books</Link> 
                         </li>
                         <li>
                             <Link href="/listed-books" className="rounded-lg hover:text-[#23BE0A] transition-colors">Listed Books</Link>

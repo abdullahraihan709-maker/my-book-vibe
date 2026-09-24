@@ -17,16 +17,16 @@ const Books = async () => {
             {/* Section Heading */}
             <div className="text-center mb-12">
                 <h2 className="font-bold text-4xl sm:text-5xl text-slate-900 tracking-tight">
-                    Books
+                   Explore Popular Books
                 </h2>
                 <p className="text-slate-500 text-base sm:text-lg mt-3 max-w-xl mx-auto">
-                    Explore our handpicked collection of bestselling titles across fiction, fantasy, classics, and more.
+                    Discover amazing stories, timeless classics, and ispiring books from talented and famous authors.
                 </p>
             </div>
 
             {/* Books Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {booksData.map((book) => (
+                {booksData.slice(0, 9).map((book) => (
                     <BookCard key={book.bookId} book={book} />
                 ))}
             </div>

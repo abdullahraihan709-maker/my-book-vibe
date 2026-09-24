@@ -44,7 +44,7 @@ const BookCard = ({ book }: BookCardProps) => {
                     {bookName}
                 </h3>
                 <p className="text-slate-500 font-medium text-sm mt-1">
-                    By : {author}
+                    By <span className="font-extrabold" >{author}</span> 
                 </p>
             </div>
 
