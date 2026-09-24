@@ -11,7 +11,7 @@ const BookCard = ({ book }: BookCardProps) => {
 
     return (
         <Link 
-            href={`/books/${bookId}`}
+            href={`/books/${book.bookId}`}
             className="group bg-base-100 rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
         >
             <div>
