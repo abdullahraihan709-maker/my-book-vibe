@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Book } from "../types/bookDataTypes";
 
 import { BooksContext } from "@/context/BooksContext";
+import { toast } from "react-toastify";
 
 
 const WishListButton = ({book}: {book: Book}) => {
@@ -16,7 +17,7 @@ const WishListButton = ({book}: {book: Book}) => {
         console.log("Read book btn triggered", book);
 
         setWishlist([...wishlist, book]);
-        alert(`You have read "${book.bookName}"`)
+        toast.success(`You have read "${book.bookName}"`)
     };
 
     return (
