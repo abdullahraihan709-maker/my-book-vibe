@@ -4,12 +4,12 @@ import React, { useContext } from 'react';
 
 const ListedBooks = () => {
 
-    const {readBooks} = useContext(BooksContext);
-    console.log(readBooks, "readBooks");
+    const {readBooks, wishlist} = useContext(BooksContext);
+    console.log(readBooks, wishlist, "readBooks", "wishlist");
 
     return (
         <div>
-            <h2>Listed books page is rendered</h2>
+            <h2>Listed books | Total Read books: {readBooks.length} <br /> | Total Wishlist books: {wishlist.length}  </h2>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import ReadButton from "@/components/bookDetails/ReadButton";
+import WishListButton from "@/components/bookDetails/WishListButton";
 import { Book } from "@/components/types/bookDataTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,9 +38,10 @@ const BookDetailsPage = async ({ params }: TBookDetailsPage) => {
 
     return (
         <section className="py-10 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 
-                {/* Left Side: Book Image Container */}
+                {/* Left Side (Book Image Container) Start */}
                 <div className="lg:col-span-5 bg-slate-100 rounded-3xl p-8 md:p-12 flex justify-center items-center border border-slate-200/80 shadow-sm min-h-105 lg:min-h-140">
                     <div className="relative w-56 sm:w-64 md:w-72 h-85 sm:h-100 md:h-110 drop-shadow-2xl">
                         <Image
@@ -52,9 +54,12 @@ const BookDetailsPage = async ({ params }: TBookDetailsPage) => {
                         />
                     </div>
                 </div>
+                {/* Left Side (Book Image Container) End */}
 
-                {/* Right Side: Book Details & Actions */}
+
+                {/* Right Side (Book Details & Actions) section Start */}
                 <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+
                     {/* Book Name & Author */}
                     <div>
                         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
@@ -82,7 +87,7 @@ const BookDetailsPage = async ({ params }: TBookDetailsPage) => {
                         </p>
                     </div>
 
-                    {/* Tags List */}
+                    {/* Tags List Start */}
                     <div className="flex items-center gap-3 flex-wrap">
                         <span className="font-bold text-slate-900 text-base">Tag</span>
                         <div className="flex gap-2 flex-wrap">
@@ -96,25 +101,35 @@ const BookDetailsPage = async ({ params }: TBookDetailsPage) => {
                             ))}
                         </div>
                     </div>
+                    {/* Tags List End */}
+                    
+                    
 
-                    <div className="border-t border-slate-200" />
-
-                    {/* Metadata Table */}
+                    {/* Metadata Table Start */}
                     <div className="space-y-3 max-w-md text-slate-700 text-base">
+
+                        {/* Number of Pages */}
                         <div className="grid grid-cols-2">
                             <span className="text-slate-500">Number of Pages:</span>
                             <span className="font-semibold text-slate-900">{book.totalPages}</span>
                         </div>
+
+                        {/* Publisher */}
                         <div className="grid grid-cols-2">
                             <span className="text-slate-500">Publisher:</span>
                             <span className="font-semibold text-slate-900">{book.publisher}</span>
                         </div>
+
+                        {/* Year of Publishing */}
                         <div className="grid grid-cols-2">
                             <span className="text-slate-500">Year of Publishing:</span>
                             <span className="font-semibold text-slate-900">{book.yearOfPublishing}</span>
                         </div>
+
+                        {/* Rating Start */}
                         <div className="grid grid-cols-2 items-center">
                             <span className="text-slate-500">Rating:</span>
+                           
                             <div className="flex items-center gap-1.5 font-semibold text-slate-900">
                                 <span>{book.rating}</span>
                                 <svg
@@ -125,21 +140,29 @@ const BookDetailsPage = async ({ params }: TBookDetailsPage) => {
                                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                                 </svg>
                             </div>
+
                         </div>
+                        {/* Rating End */}
+
+
                     </div>
+                    {/* Metadata Table Start */}
+
+
 
                     {/* Action Buttons */}
                     <div className="flex items-center gap-4 pt-4">
                         
                         <ReadButton book={book} />
 
-                        <button className="btn bg-[#59C6D2] hover:bg-[#4bb1be] text-white border-none rounded-xl px-8 text-base font-semibold shadow-md hover:shadow-lg transition-all">
-                            Wishlist
-                        </button>
+                        <WishListButton book={book} />
                     </div>
 
                 </div>
+                {/* Right Side (Book Details & Actions) section End */}
+
             </div>
+            
         </section>
     );
 };
