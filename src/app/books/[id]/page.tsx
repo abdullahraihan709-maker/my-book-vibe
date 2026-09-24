@@ -1,3 +1,4 @@
+import ReadButton from "@/components/bookDetails/ReadButton";
 import { Book } from "@/components/types/bookDataTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -129,9 +130,9 @@ const BookDetailsPage = async ({ params }: TBookDetailsPage) => {
 
                     {/* Action Buttons */}
                     <div className="flex items-center gap-4 pt-4">
-                        <button className="btn btn-outline border-slate-300 hover:bg-[#23BE0A] hover:border-[#23BE0A] hover:text-white rounded-xl px-8 text-base font-semibold shadow-sm transition-all">
-                            Read
-                        </button>
+                        
+                        <ReadButton book={book} />
+
                         <button className="btn bg-[#59C6D2] hover:bg-[#4bb1be] text-white border-none rounded-xl px-8 text-base font-semibold shadow-md hover:shadow-lg transition-all">
                             Wishlist
                         </button>
