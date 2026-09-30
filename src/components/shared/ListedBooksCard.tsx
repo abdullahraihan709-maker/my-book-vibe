@@ -24,7 +24,7 @@ const ListedBooksCard = ({ book }: ListedBooksCardProps) => {
         <div className="bg-base-100 border border-slate-200/80 rounded-3xl p-6 mb-6 flex flex-col lg:flex-row gap-6 items-center lg:items-stretch shadow-sm hover:shadow-md transition-all duration-300">
            
             {/* Book Cover Image Box Start */}
-            <div className="bg-slate-100 rounded-2xl p-6 flex justify-center items-center w-full lg:w-60 shrink-0 min-h-[230px]">
+            <div className="bg-slate-100 rounded-2xl p-6 flex justify-center items-center w-full lg:w-60 shrink-0 min-h-57.5">
                 <div className="relative w-32 h-40 drop-shadow-md">
                     <Image
                         src={image}

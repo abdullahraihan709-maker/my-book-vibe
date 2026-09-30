@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export interface Book {
     bookId: number;
     bookName: string;
@@ -10,4 +12,11 @@ export interface Book {
     tags: string[];
     publisher: string;
     yearOfPublishing: number;
+}
+
+export interface BooksContextType {
+    readBooks: Book[];
+    setReadBooks: Dispatch<SetStateAction<Book[]>>;
+    wishlist: Book[];
+    setWishlist: Dispatch<SetStateAction<Book[]>>;
 }

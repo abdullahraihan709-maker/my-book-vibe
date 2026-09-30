@@ -2,11 +2,16 @@ import BookCard from "../shared/BookCard";
 import {Book} from "@/components/types/bookDataTypes"
 
 const getBooks = async (): Promise<Book[]> => {
-    const response = await fetch("http://localhost:3000/booksData.json", {
+    try{
+        const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`, {
         cache: "no-store", // Ensure fresh data on server render
-    });
-    const data = await response.json();
-    return data;
+        });
+        const data = await response.json();
+        return data;
+    }catch(error){
+        console.log("Error fetching books data", error);
+        return[];
+    }
 };
 
 const Books = async () => {

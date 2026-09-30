@@ -11,11 +11,16 @@ interface TBookDetailsPage {
 }
 
 const getBooks = async (): Promise<Book[]> => {
-    const response = await fetch("http://localhost:3000/booksData.json", {
-        cache: "no-store",
-    });
-    const data = await response.json();
-    return data;
+    try{
+        const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`, {
+        cache: "no-store", // Ensure fresh data on server render
+        });
+        const data = await response.json();
+        return data;
+    }catch(error){
+        console.log("Error fetching books data", error);
+        return[];
+    }
 };
 
 const BookDetailsPage = async ({ params }: TBookDetailsPage) => {

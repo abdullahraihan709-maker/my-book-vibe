@@ -3,13 +3,20 @@
 import { createContext, ReactNode, useState } from 'react';
 
 
-export const BooksContext = createContext({});
+import { Book, BooksContextType } from '@/components/types/bookDataTypes';
+
+export const BooksContext = createContext<BooksContextType>({
+    readBooks: [],
+    setReadBooks: () => {},
+    wishlist: [],
+    setWishlist: () => {},
+});
 
 
 const BooksProvider = ({children}: {children: ReactNode} ) => {
 
-    const [readBooks, setReadBooks] = useState([]);
-    const [wishlist, setWishlist] = useState([]);
+    const [readBooks, setReadBooks] = useState<Book[]>([]);
+    const [wishlist, setWishlist] = useState<Book[]>([]);
 
     const sharedData = {
         readBooks,
