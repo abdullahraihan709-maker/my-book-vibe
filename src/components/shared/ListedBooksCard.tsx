@@ -1,12 +1,20 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 import { Book } from "@/components/types/bookDataTypes";
+import { BooksContext } from '@/context/BooksContext';
+import { useContext } from 'react';
+import { toast } from "react-toastify";
 
 interface ListedBooksCardProps {
     book: Book;
+    isWishlist?: boolean;
 }
 
-const ListedBooksCard = ({ book }: ListedBooksCardProps) => {
+const ListedBooksCard = ({ book, isWishlist = false }: ListedBooksCardProps) => {
+    const { setReadBooks, setWishlist } = useContext(BooksContext);
+
     const {
         bookId,
         bookName,
@@ -19,6 +27,23 @@ const ListedBooksCard = ({ book }: ListedBooksCardProps) => {
         category,
         rating,
     } = book;
+
+
+
+    // Handle "X" (Remove)
+    const handleRemove = () => {
+        if (isWishlist) {
+            setWishlist((prev) => prev.filter((item) => item.bookId !== bookId));
+            toast.info("Removed from Wishlist");
+        } else {
+            setReadBooks((prev) => prev.filter((item) => item.bookId !== bookId));
+            toast.info("Removed from Read books");
+        }
+    };
+
+
+
+
 
     return (
         <div className="bg-base-100 border border-slate-200/80 rounded-3xl p-6 mb-6 flex flex-col lg:flex-row gap-6 items-center lg:items-stretch shadow-sm hover:shadow-md transition-all duration-300">
@@ -120,6 +145,20 @@ const ListedBooksCard = ({ book }: ListedBooksCardProps) => {
                     >
                         View Details
                     </Link>
+
+
+                    {/* Close/Remove "X" Button Start */}
+                    <button 
+                        onClick={handleRemove}
+                        className="p-2 text-slate-500 hover:text-white hover:bg-slate-800 rounded-full transition-colors ml-1" 
+                        aria-label="Remove workout"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    {/* Close/Remove "X" Button End */}
+
                 </div>
                 {/* Bottom Status Badges & View Details Link End */}
 

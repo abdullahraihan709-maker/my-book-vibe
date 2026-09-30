@@ -1,5 +1,5 @@
 'use client';
-import BookCard from '@/components/shared/BookCard';
+
 import ListedBooksCard from '@/components/shared/ListedBooksCard';
 import { Book } from '@/components/types/bookDataTypes';
 import { BooksContext } from '@/context/BooksContext';
@@ -53,13 +53,15 @@ const ListedBooks = () => {
 
             {/* name of each tab group should be unique */}
             <div className="tabs tabs-lift">
-                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Read Books (${readBooks.length})`} />
+
+                {/* Read Books Tab */}
+                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Read Books (${readBooks.length})`} defaultChecked />
 
                 <div className="tab-content bg-base-100 border-base-300 p-6">
                    
                     { sortedReadBooks.length > 0 ? (
                         sortedReadBooks.map((book: Book) => {
-                            return <ListedBooksCard key={book.bookId} book={book} />
+                            return <ListedBooksCard key={book.bookId} book={book} isWishlist={false} />
                         })
                      ) : (
                         <p className='text-center text-lg font-semibold' >No read books are found</p>
@@ -68,13 +70,14 @@ const ListedBooks = () => {
 
                 </div>
 
-                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Wishlist Books (${wishlist.length})`} defaultChecked />
+                {/* Wishlist Tab */}
+                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Wishlist Books (${wishlist.length})`} />
                 
                 <div className="tab-content bg-base-100 border-base-300 p-6">
                     
                     { sortedWishlist.length > 0 ? (
                         sortedWishlist.map((book: Book) => {
-                            return <ListedBooksCard key={book.bookId} book={book} />
+                            return <ListedBooksCard key={book.bookId} book={book} isWishlist={true} />
                         } )
                      ) : (
                         <p className='text-center text-lg font-semibold' >No wishlist books are found</p>
